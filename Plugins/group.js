@@ -86,6 +86,7 @@ module.exports = {
       isBotAdmin,
       groupAdmin,
       isAdmin,
+      isCreator,
     }
   ) => {
     let messageSender = m.sender;
@@ -108,7 +109,7 @@ module.exports = {
         break;
 
       case "setgcname":
-        if (!isAdmin) {
+        if (!isAdmin && !isCreator) {
           await doReact("❌");
           return m.reply(`*You* must be *Admin* in order to use this Command!`);
         }
@@ -148,7 +149,7 @@ module.exports = {
 
       case "delete":
       case "del":
-        if (!isAdmin) {
+        if (!isAdmin && !isCreator) {
           await doReact("❌");
           return m.reply(`*You* must be *Admin* in order to use this Command!`);
         }
@@ -171,10 +172,10 @@ module.exports = {
           await doReact("📛");
           await Atlas.sendMessage(m.from, { delete: key });
         } else {
-          if (!isAdmin) {
+          if (!isAdmin && !isCreator) {
             await doReact("❌");
             return m.reply(
-              `Sorry, only *Admins* can delete other's messages !`
+              `Sorry, only *Admins* and *Developer* can delete other's messages !`
             );
           }
           key = {
@@ -190,7 +191,7 @@ module.exports = {
         break;
 
       case "demote":
-        if (!isAdmin) {
+        if (!isAdmin && !isCreator) {
           await doReact("❌");
           return m.reply(`*You* must be *Admin* in order to use this Command!`);
         }
@@ -298,7 +299,7 @@ module.exports = {
 
       case "group":
       case "gc":
-        if (!isAdmin) {
+        if (!isAdmin && !isCreator) {
           await doReact("❌");
           return m.reply(`*You* must be *Admin* in order to use this Command!`);
         }
@@ -370,9 +371,9 @@ module.exports = {
 
       case "hidetag":
       case "htag":
-        if (!isAdmin) {
+        if (!isAdmin && !isCreator) {
           await doReact("❌");
-          return m.reply(`*You* must be *Admin* in order to use this Command!`);
+          return m.reply(`*You* must be *Admin* or *Developer* in order to use this Command!`);
         }
         if (!isMedia) {
           message2 = m.quoted
@@ -394,13 +395,13 @@ module.exports = {
         break;
 
       case "leave":
-        if (!isAdmin) {
+        if (!isCreator) {
           await doReact("❌");
-          return m.reply(`*You* must be *Admin* in order to use this Command!`);
+          return m.reply(`*Only my Developer can use this Command!`);
         }
         await doReact("👋");
         await Atlas.sendMessage(m.from, {
-          image: { url: "https://wallpapercave.com/wp/wp9667218.png" },
+          image: { url: "https://i.ibb.co/T4QmqJC/20230210-170626.jpg" },
           caption: `I'm Leaving this group on request... \n\nTake care everyone :)`,
           mentions: participants.map((a) => a.id),
           quoted: m,
@@ -416,7 +417,7 @@ module.exports = {
         break;
 
       case "promote":
-        if (!isAdmin) {
+        if (!isAdmin && !isCreator) {
           await doReact("❌");
           return m.reply(`*You* must be *Admin* in order to use this Command!`);
         }
@@ -488,7 +489,7 @@ module.exports = {
         break;
 
       case "remove":
-        if (!isAdmin) {
+        if (!isAdmin && !isCreator) {
           await doReact("❌");
           return m.reply(`*You* must be *Admin* in order to use this Command!`);
         }
@@ -550,7 +551,7 @@ module.exports = {
         break;
 
       case "setppgc":
-        if (!isAdmin) {
+        if (!isAdmin && !isCreator) {
           await doReact("❌");
           return m.reply(`*You* must be *Admin* in order to use this Command!`);
         }
@@ -610,7 +611,7 @@ module.exports = {
         break;
 
       case "setgcdesc":
-        if (!isAdmin) {
+        if (!isAdmin && !isCreator) {
           await doReact("❌");
           return m.reply(`*You* must be *Admin* in order to use this Command!`);
         }
@@ -652,7 +653,7 @@ module.exports = {
         break;
 
       case "revoke":
-        if (!isAdmin) {
+        if (!isAdmin && !isCreator) {
           await doReact("❌");
           return m.reply(`*You* must be *Admin* in order to use this Command!`);
         }
@@ -680,9 +681,9 @@ module.exports = {
         break;
 
       case "tagall":
-        if (!isAdmin) {
+        if (!isAdmin && !isCreator) {
           await doReact("❌");
-          return m.reply(`*You* must be *Admin* in order to use this Command!`);
+          return m.reply(`*You* must be *Admin* or *Developer* in order to use this Command!`);
         }
         if (!isBotAdmin) {
           await doReact("❌");
@@ -719,9 +720,9 @@ module.exports = {
         break;
 
       case "chatbotgc":
-        if (!isAdmin) {
+        if (!isAdmin && !isCreator) {
           await doReact("❌");
-          return m.reply(`*You* must be *Admin* in order to use this Command!`);
+          return m.reply(`*You* must be *Admin* or *Developer* in order to use this Command!`);
         }
 
         if (!text) {
@@ -759,9 +760,9 @@ module.exports = {
         break;
 
       case "antilink":
-        if (!isAdmin) {
+        if (!isAdmin && !isCreator) {
           await doReact("❌");
-          return m.reply(`*You* must be *Admin* in order to use this Command!`);
+          return m.reply(`*You* must be *Admin* and *Developer* in order to use this Command!`);
         }
         if (!isBotAdmin) {
           await doReact("❌");
@@ -803,9 +804,9 @@ module.exports = {
         break;
 
       case "welcome":
-        if (!isAdmin) {
+        if (!isAdmin && !isCreator) {
           await doReact("❌");
-          return m.reply(`*You* must be *Admin* in order to use this Command!`);
+          return m.reply(`*You* must be *Admin* or *Developer* in order to use this Command!`);
         }
         if (!isBotAdmin) {
           await doReact("❌");
