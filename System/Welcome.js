@@ -31,6 +31,7 @@ Welcome to *${metadata.subject}*.
 
 ${desc}
 
+*Powered by: 🔱Ronen-Bots*
 *Thank You.*
   `;
         if (WELstatus) {
@@ -49,7 +50,7 @@ ${desc}
           }\n`
         );
         Atlastext = `
-  @${WAuserName.split("@")[0]} Senpai left the group.
+  @${WAuserName.split("@")[0]} is gay bcoz he left the grp👋.
   `;
         if (WELstatus) {
           await Atlas.sendMessage(anu.id, {
