@@ -94,7 +94,7 @@ module.exports = {
       wink: "Winked at",
       yeet: "Yeeted at",
     };
-    await doReact("🎭");
+    await doReact("💠");
 
     const reactions = Object.keys(suitableWords);
     const command = m.body
