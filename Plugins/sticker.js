@@ -230,7 +230,7 @@ module.exports = {
         if (!text && !m.quoted) {
           await doReact("❔");
           return m.reply(
-            `Please provide a text (Type or mention a message) !\n\nExample: ${prefix}q Atlas MD is OP`
+            `Please provide a text (Type or mention a message) !\n\nExample: ${prefix}q Ronen is stone`
           );
         }
 
