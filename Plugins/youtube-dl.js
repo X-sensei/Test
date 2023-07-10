@@ -34,10 +34,10 @@ module.exports = {
         if (!text) {
           await doReact("❌");
           return m.reply(
-            `Please provide a song name !\n\nExample: *${prefix}song despacito*`
+            `Please provide a song name !\n\nExample: *${prefix}song Doreamon theme song*`
           );
         }
-        await doReact("📥");
+        await doReact("📂");
         thumbAtlas = "https://graph.org/file/d0a287fa875c809f234ce.jpg";
         songInfo = await yts(text);
         song = songInfo.videos[0];
@@ -116,7 +116,7 @@ _🏮 Video Uploaded:_ *${song.ago}*\n`,
             `Please provide a valid YouTube Video link to download as audio!\n\nExample: *${prefix}mp3 put_link*`
           );
         }
-        await doReact("📥");
+        await doReact("🎶");
         songInfo = await yts(text);
         song = songInfo.videos[0];
         videoUrl = song.url;
@@ -194,7 +194,7 @@ _🏮 Video Uploaded:_ *${song.ago}*\n`,
             `Please provide a valid YouTube Video link to download as audio!\n\nExample: *${prefix}mp4 put_link*`
           );
         }
-        await doReact("📥");
+        await doReact("🎥");
         songInfo = await yts(text);
         song = songInfo.videos[0];
         videoUrl = song.url;
@@ -232,10 +232,10 @@ _🏮 Video Uploaded:_ *${song.ago}*\n`,
         if (!text) {
           await doReact("❌");
           return m.reply(
-            `Please provide an YouTube video name !\n\nExample: *${prefix}video dandilions*`
+            `Please provide an YouTube video name !\n\nExample: *${prefix}video dandelions*`
           );
         }
-        await doReact("📥");
+        await doReact("🎥");
 
         songInfo = await yts(text);
         song = songInfo.videos[0];
@@ -275,7 +275,7 @@ _🏮 Video Uploaded:_ *${song.ago}*\n`,
           await doReact("❌");
           return m.reply(`Please provide a search term!`);
         }
-        await doReact("📥");
+        await doReact("🔍");
         let search = await yts(text);
         let thumbnail = search.all[0].thumbnail;
         let num = 1;
