@@ -48,6 +48,9 @@ let mergedCommands = [
   "unbangc",
   "setbotmode",
   "mode",
+  "mod",
+  "owner",
+  "dev",
 ];
 
 module.exports = {
@@ -211,6 +214,9 @@ module.exports = {
 
       case "modlist":
       case "mods":
+      case "mod":
+      case "owner":
+      case "dev":
         await doReact("✅");
         try {
           var modlist = await userData.find({ addedMods: "true" });
